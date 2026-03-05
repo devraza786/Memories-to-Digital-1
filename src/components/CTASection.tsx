@@ -1,6 +1,6 @@
 const CTASection = () => {
   return (
-    <section className="py-20">
+    <section id="contact" className="py-20">
       <div className="max-w-4xl mx-auto px-6">
         <div className="glass neon-glow-purple p-12 md:p-16 text-center">
           <h2 className="text-3xl md:text-5xl font-extrabold mb-6">

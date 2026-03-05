@@ -10,7 +10,7 @@ const Navbar = () => {
         <div className="flex items-center gap-8">
           <div className="flex items-center gap-2">
             <Film className="w-6 h-6 text-primary" />
-            <span className="font-bold text-lg text-foreground">ReelRevive</span>
+            <span className="font-bold text-lg text-foreground">Memories to Digital</span>
           </div>
           <div className="hidden lg:flex items-center gap-6">
             {menuItems.map((item) => (
