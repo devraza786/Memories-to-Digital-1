@@ -1,4 +1,4 @@
-import { Star, Play, CheckCircle2 } from "lucide-react";
+import { Star, Play, CheckCircle2, Film } from "lucide-react";
 import heroReel from "@/assets/hero-reel-center.png";
 import vhsImg from "@/assets/vhs-tape.jpg";
 import cassetteImg from "@/assets/cassette-tape.jpg";
