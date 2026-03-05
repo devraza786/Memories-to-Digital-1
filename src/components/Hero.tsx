@@ -6,11 +6,11 @@ import heroDvd from "@/assets/hero-dvd.jpg";
 import heroCassette from "@/assets/hero-cassette.jpg";
 
 const cards = [
-  { img: heroDvd, rotate: -24, translate: "-60px", z: 1 },
-  { img: heroUsb, rotate: -12, translate: "-20px", z: 2 },
-  { img: heroCamcorder, rotate: 0, translate: "0px", z: 3 },
-  { img: heroCassette, rotate: 12, translate: "-20px", z: 2 },
-  { img: heroVhs, rotate: 24, translate: "-60px", z: 1 },
+  { img: heroDvd, label: "DVD" },
+  { img: heroUsb, label: "USB" },
+  { img: heroCamcorder, label: "Camcorder" },
+  { img: heroCassette, label: "Cassette" },
+  { img: heroVhs, label: "VHS Player" },
 ];
 
 const Hero = () => {
@@ -21,8 +21,8 @@ const Hero = () => {
       <div className="absolute inset-0 grid-bg opacity-20" />
 
       {/* Large faded background icon */}
-      <div className="absolute top-16 left-1/2 -translate-x-1/2 opacity-[0.04]">
-        <Film className="w-[500px] h-[500px] text-foreground" />
+      <div className="absolute top-16 left-1/2 -translate-x-1/2 opacity-[0.04] pointer-events-none">
+        <Film className="w-[400px] h-[400px] md:w-[500px] md:h-[500px] text-foreground" />
       </div>
 
       <div className="relative z-10 flex flex-col items-center w-full max-w-6xl mx-auto px-6">
@@ -32,25 +32,36 @@ const Hero = () => {
         </div>
 
         {/* Fan-spread cards */}
-        <div className="relative flex items-end justify-center mb-12 h-[280px] md:h-[340px]">
-          {cards.map((card, i) => (
-            <div
-              key={i}
-              className="absolute w-40 h-52 md:w-52 md:h-72 rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 hover:scale-110 hover:!z-20 cursor-pointer group"
-              style={{
-                transform: `rotate(${card.rotate}deg) translateY(${card.translate})`,
-                zIndex: card.z,
-                left: `calc(50% - ${(2 - i) * (window.innerWidth < 768 ? 70 : 90)}px - ${window.innerWidth < 768 ? 80 : 104}px)`,
-              }}
-            >
-              <img
-                src={card.img}
-                alt="Media format"
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
-            </div>
-          ))}
+        <div className="relative flex items-center justify-center mb-14 h-[260px] md:h-[340px] w-full">
+          {cards.map((card, i) => {
+            const rotations = [-24, -12, 0, 12, 24];
+            const translates = ["-40px", "-12px", "0px", "-12px", "-40px"];
+            const zIndexes = [1, 2, 3, 2, 1];
+            const offsets = ["-180px", "-90px", "0px", "90px", "180px"];
+            const mobileOffsets = ["-140px", "-70px", "0px", "70px", "140px"];
+
+            return (
+              <div
+                key={card.label}
+                className="absolute transition-all duration-500 hover:!scale-110 hover:!z-20 cursor-pointer group"
+                style={{
+                  transform: `translateX(var(--card-offset)) rotate(${rotations[i]}deg) translateY(${translates[i]})`,
+                  zIndex: zIndexes[i],
+                  // @ts-ignore
+                  "--card-offset": offsets[i],
+                }}
+              >
+                <div className="w-36 h-48 md:w-52 md:h-72 rounded-2xl overflow-hidden shadow-2xl">
+                  <img
+                    src={card.img}
+                    alt={card.label}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent rounded-2xl" />
+                </div>
+              </div>
+            );
+          })}
         </div>
 
         {/* Heading */}
