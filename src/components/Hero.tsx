@@ -20,20 +20,20 @@ const Hero = () => {
         <div className="relative flex-1 flex flex-col justify-center px-8 md:px-16 py-12 lg:py-0">
           {/* Badge */}
           <div className="flex items-center gap-3 mb-6">
-            <span className="text-sm text-muted-foreground">See All</span>
-            <span className="text-sm text-primary font-medium border-b border-primary pb-0.5">Top Picks</span>
-            <span className="text-sm text-muted-foreground">Recent</span>
+            <span className="text-sm text-muted-foreground">All</span>
+            <span className="text-sm text-primary font-medium border-b border-primary pb-0.5">Recent Clients</span>
+            <span className="text-sm text-muted-foreground">Completed</span>
           </div>
 
-          {/* User info */}
+          {/* Header */}
           <div className="flex items-center gap-3 mb-8">
             <div className="w-10 h-10 rounded-full bg-gradient-to-br from-neon-cyan to-neon-purple" />
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-semibold text-foreground">Your Collection</span>
-                <span className="text-xs px-2 py-0.5 rounded-full bg-primary/20 text-primary">NEW</span>
+                <span className="font-semibold text-foreground">Happy Customers</span>
+                <span className="text-xs px-2 py-0.5 rounded-full bg-primary/20 text-primary">500+</span>
               </div>
-              <span className="text-xs text-muted-foreground uppercase tracking-wider">Conversion Queue</span>
+              <span className="text-xs text-muted-foreground uppercase tracking-wider">Conversion History</span>
             </div>
           </div>
 
@@ -43,26 +43,32 @@ const Hero = () => {
             <span className="text-gradient">to Digital</span>
           </h1>
 
-          {/* Service list */}
+          {/* Client history list */}
           <div className="space-y-3 max-w-md">
-            {services.map((s, i) => (
+            {clients.map((c, i) => (
               <div
-                key={s.num}
+                key={c.num}
                 className={`flex items-center gap-4 p-3 rounded-xl transition-all cursor-pointer group ${
                   i === 1 ? "glass neon-glow-cyan" : "hover:bg-muted/30"
                 }`}
               >
-                <span className="text-xs text-muted-foreground w-6">{s.num}</span>
-                <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${
-                  i === 1 ? "bg-primary" : "bg-muted"
+                <span className="text-xs text-muted-foreground w-6">{c.num}</span>
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold ${
+                  i === 1 ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
                 }`}>
-                  <Play className={`w-3 h-3 ${i === 1 ? "text-primary-foreground" : "text-muted-foreground"}`} fill="currentColor" />
+                  {c.name.charAt(0)}
                 </div>
                 <div className="flex-1">
-                  <p className="text-sm font-medium text-foreground">{s.title}</p>
-                  <p className="text-xs text-muted-foreground">{s.format}</p>
+                  <p className="text-sm font-medium text-foreground">{c.name}</p>
+                  <p className="text-xs text-muted-foreground">{c.tapes}</p>
                 </div>
-                <span className="text-xs text-muted-foreground font-mono">{s.duration}</span>
+                <div className="text-right">
+                  <div className="flex items-center gap-1">
+                    <CheckCircle2 className={`w-3 h-3 ${c.status === "Delivered" ? "text-primary" : "text-neon-purple"}`} />
+                    <span className={`text-xs font-medium ${c.status === "Delivered" ? "text-primary" : "text-neon-purple"}`}>{c.status}</span>
+                  </div>
+                  <span className="text-xs text-muted-foreground">{c.date}</span>
+                </div>
               </div>
             ))}
           </div>
