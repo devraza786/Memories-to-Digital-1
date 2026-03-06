@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
 import vhsImg from "@/assets/vhs-tape.jpg";
 import minidvImg from "@/assets/minidv-tape.jpg";
 import cassetteImg from "@/assets/cassette-tape.jpg";
@@ -16,6 +17,7 @@ const services = [
 
 const ServicesCarousel = () => {
   const [active, setActive] = useState(2);
+  const isMobile = useIsMobile();
 
   const prev = () => setActive((a) => (a === 0 ? services.length - 1 : a - 1));
   const next = () => setActive((a) => (a === services.length - 1 ? 0 : a + 1));
@@ -40,7 +42,7 @@ const ServicesCarousel = () => {
             {services.map((s, i) => {
               const isActive = i === active;
               const distance = Math.abs(i - active);
-              const isVisible = distance <= 2;
+              const isVisible = isMobile ? distance === 0 : distance <= 2;
               if (!isVisible) return null;
 
               return (

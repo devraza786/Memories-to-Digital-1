@@ -4,6 +4,14 @@ import vhsImg from "@/assets/vhs-tape.jpg";
 import cassetteImg from "@/assets/cassette-tape.jpg";
 
 const Hero = () => {
+  const handleSeeServices = () => {
+    document.getElementById("services")?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleOrderNow = () => {
+    document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section id="home" className="relative min-h-screen pt-24 overflow-hidden">
       <div className="absolute inset-0 grid-bg opacity-10" />
@@ -77,10 +85,10 @@ const Hero = () => {
 
             {/* Buttons */}
             <div className="flex items-center gap-4">
-              <button className="px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold hover:shadow-[0_0_30px_hsl(var(--neon-cyan)/0.3)] transition-all duration-300 hover:scale-105">
+              <button onClick={handleOrderNow} className="px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold hover:shadow-[0_0_30px_hsl(var(--neon-cyan)/0.3)] transition-all duration-300 hover:scale-105">
                 Order Now
               </button>
-              <button className="px-6 py-3 rounded-full border border-border text-foreground font-semibold hover:border-primary/50 transition-all">
+              <button onClick={handleSeeServices} className="px-6 py-3 rounded-full border border-border text-foreground font-semibold hover:border-primary/50 transition-all">
                 See Services
               </button>
             </div>
