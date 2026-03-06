@@ -50,10 +50,8 @@ const ServicesCarousel = () => {
                   className={`
                     glass cursor-pointer overflow-hidden transition-all duration-500 flex-shrink-0
                     ${isActive
-                      ? "w-72 md:w-80 scale-100 neon-glow-cyan opacity-100 z-10"
-                      : distance === 1
-                        ? "w-56 md:w-64 scale-90 opacity-60"
-                        : "w-48 md:w-52 scale-80 opacity-30 hidden md:block"
+                      ? "w-full md:w-80 scale-100 neon-glow-cyan opacity-100 z-10"
+                      : "hidden md:block w-56 md:w-64 scale-90 opacity-60"
                     }
                   `}
                 >
