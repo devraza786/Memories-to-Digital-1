@@ -1,6 +1,10 @@
-import { Search, Phone, User, Film } from "lucide-react";
+"use client";
+
+import { useState } from "react";
+import { Search, Phone, Film, Menu, X } from "lucide-react";
 
 const Navbar = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const menuItems = ["Home", "Services", "Pricing", "How It Works", "Contact"];
 
   return (
@@ -39,17 +43,45 @@ const Navbar = () => {
 
         {/* Right: Actions */}
         <div className="flex items-center gap-3">
-          <button className="p-2 rounded-xl hover:bg-muted/50 transition-colors">
-            <Phone className="w-4 h-4 text-muted-foreground" />
+          <button
+            onClick={() => window.location.href = 'tel:+1234567890'}
+            className="p-2 rounded-xl hover:bg-muted/50 hover:text-primary transition-all duration-200"
+            title="Call us"
+          >
+            <Phone className="w-4 h-4 text-muted-foreground hover:text-primary" />
           </button>
-          <button className="hidden sm:block text-sm px-4 py-2 rounded-xl border border-border text-muted-foreground hover:text-foreground hover:border-primary/50 transition-all">
-            Order Status
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="lg:hidden p-2 rounded-xl hover:bg-muted/50 transition-colors"
+          >
+            {mobileMenuOpen ? (
+              <X className="w-5 h-5 text-foreground" />
+            ) : (
+              <Menu className="w-5 h-5 text-foreground" />
+            )}
           </button>
-          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-neon-cyan to-neon-purple flex items-center justify-center">
-            <User className="w-4 h-4 text-background" />
-          </div>
         </div>
       </div>
+
+      {/* Mobile Navigation Menu */}
+      {mobileMenuOpen && (
+        <div className="lg:hidden glass neon-glow-cyan mt-2 rounded-2xl p-4 animate-in fade-in slide-in-from-top-2">
+          <div className="flex flex-col gap-2">
+            {menuItems.map((item) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
+                className="text-sm px-4 py-3 rounded-lg text-muted-foreground hover:text-primary hover:bg-muted/50 transition-colors duration-200"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {item}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
     </nav>
   );
 };
