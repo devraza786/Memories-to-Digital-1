@@ -77,8 +77,8 @@ const Hero = () => {
         </div>
 
         {/* Center Reel - overlapping both panels */}
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none hidden lg:block">
-          <div className="w-[420px] h-[420px] xl:w-[500px] xl:h-[500px] animate-[spin_20s_linear_infinite]">
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none">
+          <div className="w-[280px] h-[280px] md:w-[360px] md:h-[360px] lg:w-[420px] lg:h-[420px] xl:w-[500px] xl:h-[500px] animate-[spin_20s_linear_infinite]">
             <img src={heroReel} alt="Film reel" className="w-full h-full object-contain drop-shadow-[0_0_40px_hsl(var(--neon-cyan)/0.3)]" />
           </div>
         </div>
