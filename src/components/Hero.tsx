@@ -77,10 +77,22 @@ const Hero = () => {
 
             {/* Buttons */}
             <div className="flex items-center gap-4">
-              <button className="px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold hover:shadow-[0_0_30px_hsl(var(--neon-cyan)/0.3)] transition-all duration-300 hover:scale-105">
+              <button
+                onClick={() => {
+                  const pricingSection = document.getElementById("pricing");
+                  pricingSection?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold hover:shadow-[0_0_30px_hsl(var(--neon-cyan)/0.3)] transition-all duration-300 hover:scale-105"
+              >
                 Order Now
               </button>
-              <button className="px-6 py-3 rounded-full border border-border text-foreground font-semibold hover:border-primary/50 transition-all">
+              <button
+                onClick={() => {
+                  const servicesSection = document.getElementById("services");
+                  servicesSection?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="px-6 py-3 rounded-full border border-border text-foreground font-semibold hover:border-primary/50 transition-all"
+              >
                 See Services
               </button>
             </div>

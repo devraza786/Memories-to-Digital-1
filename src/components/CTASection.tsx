@@ -10,7 +10,13 @@ const CTASection = () => {
           <p className="text-muted-foreground text-lg mb-10 max-w-lg mx-auto">
             Start preserving your precious recordings today with our professional digitization service.
           </p>
-          <button className="px-10 py-4 rounded-2xl bg-primary text-primary-foreground font-semibold text-lg hover:shadow-[0_0_40px_hsl(var(--neon-cyan)/0.4)] transition-all duration-300 hover:scale-105">
+          <button
+            onClick={() => {
+              const pricingSection = document.getElementById("pricing");
+              pricingSection?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="px-10 py-4 rounded-2xl bg-primary text-primary-foreground font-semibold text-lg hover:shadow-[0_0_40px_hsl(var(--neon-cyan)/0.4)] transition-all duration-300 hover:scale-105"
+          >
             Convert My Tapes
           </button>
         </div>

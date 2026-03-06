@@ -117,7 +117,13 @@ const Pricing = () => {
                 ))}
               </div>
 
-              <button className="w-full py-3 rounded-xl font-bold bg-muted text-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300">
+              <button
+                onClick={() => {
+                  const message = `I'm interested in ordering: ${pkg.name} - ${pkg.price}`;
+                  window.location.href = `mailto:Pnwbizz@gmail.com?subject=Order Request&body=${encodeURIComponent(message)}`;
+                }}
+                className="w-full py-3 rounded-xl font-bold bg-muted text-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+              >
                 Order Now
               </button>
             </motion.div>

@@ -43,13 +43,13 @@ const Navbar = () => {
 
         {/* Right: Actions */}
         <div className="flex items-center gap-3">
-          <button
-            onClick={() => window.location.href = 'tel:+1234567890'}
+          <a
+            href="tel:+15095092903"
             className="p-2 rounded-xl hover:bg-muted/50 hover:text-primary transition-all duration-200"
-            title="Call us"
+            title="Call us: (509) 509-2903"
           >
             <Phone className="w-4 h-4 text-muted-foreground hover:text-primary" />
-          </button>
+          </a>
 
           {/* Mobile Menu Button */}
           <button

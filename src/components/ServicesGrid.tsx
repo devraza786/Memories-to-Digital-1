@@ -29,6 +29,10 @@ const ServicesGrid = () => {
           {services.map((s) => (
             <div
               key={s.title}
+              onClick={() => {
+                const pricingSection = document.getElementById("pricing");
+                pricingSection?.scrollIntoView({ behavior: "smooth" });
+              }}
               className="glass group overflow-hidden hover:neon-glow-purple transition-all duration-300 hover:scale-[1.02] cursor-pointer"
             >
               <div className="h-44 overflow-hidden">
