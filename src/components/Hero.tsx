@@ -1,14 +1,7 @@
-import { Star, Play, CheckCircle2, Film } from "lucide-react";
+import { Star, Film } from "lucide-react";
 import heroReel from "@/assets/hero-reel-center.png";
 import vhsImg from "@/assets/vhs-tape.jpg";
 import cassetteImg from "@/assets/cassette-tape.jpg";
-
-const clients = [
-  { num: "01", name: "Sarah M.", tapes: "12 VHS Tapes", status: "Delivered", date: "Feb 2026" },
-  { num: "02", name: "James T.", tapes: "8 MiniDV Cassettes", status: "In Progress", date: "Mar 2026" },
-  { num: "03", name: "Linda R.", tapes: "5 Hi8 Tapes", status: "Delivered", date: "Jan 2026" },
-  { num: "04", name: "Robert K.", tapes: "20 Audio Cassettes", status: "Delivered", date: "Dec 2025" },
-];
 
 const Hero = () => {
   return (
@@ -18,12 +11,6 @@ const Hero = () => {
       <div className="relative z-10 flex flex-col lg:flex-row min-h-[calc(100vh-6rem)]">
         {/* Left Panel - Dark */}
         <div className="relative flex-1 flex flex-col justify-center px-8 md:px-16 py-12 lg:py-0">
-          {/* Badge */}
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-sm text-muted-foreground">All</span>
-            <span className="text-sm text-primary font-medium border-b border-primary pb-0.5">Recent Clients</span>
-            <span className="text-sm text-muted-foreground">Completed</span>
-          </div>
 
           {/* Header */}
           <div className="flex items-center gap-3 mb-8">
@@ -45,40 +32,11 @@ const Hero = () => {
             <span className="text-gradient">to Digital</span>
           </h1>
 
-          {/* Client history list */}
-          <div className="space-y-3 max-w-md">
-            {clients.map((c, i) => (
-              <div
-                key={c.num}
-                className={`flex items-center gap-4 p-3 rounded-xl transition-all cursor-pointer group ${
-                  i === 1 ? "glass neon-glow-cyan" : "hover:bg-muted/30"
-                }`}
-              >
-                <span className="text-xs text-muted-foreground w-6">{c.num}</span>
-                <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold ${
-                  i === 1 ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
-                }`}>
-                  {c.name.charAt(0)}
-                </div>
-                <div className="flex-1">
-                  <p className="text-sm font-medium text-foreground">{c.name}</p>
-                  <p className="text-xs text-muted-foreground">{c.tapes}</p>
-                </div>
-                <div className="text-right">
-                  <div className="flex items-center gap-1">
-                    <CheckCircle2 className={`w-3 h-3 ${c.status === "Delivered" ? "text-primary" : "text-neon-purple"}`} />
-                    <span className={`text-xs font-medium ${c.status === "Delivered" ? "text-primary" : "text-neon-purple"}`}>{c.status}</span>
-                  </div>
-                  <span className="text-xs text-muted-foreground">{c.date}</span>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
 
         {/* Center Reel - overlapping both panels */}
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none hidden lg:block">
-          <div className="w-[420px] h-[420px] xl:w-[500px] xl:h-[500px] animate-[spin_20s_linear_infinite]">
+        <div className="absolute left-1/2 top-[calc(33.333%-4px)] md:top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none">
+          <div className="w-[280px] h-[280px] md:w-[360px] md:h-[360px] lg:w-[420px] lg:h-[420px] xl:w-[500px] xl:h-[500px] animate-[spin_20s_linear_infinite]">
             <img src={heroReel} alt="Film reel" className="w-full h-full object-contain drop-shadow-[0_0_40px_hsl(var(--neon-cyan)/0.3)]" />
           </div>
         </div>
