@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import { BookingFormProvider } from "@/contexts/BookingFormContext";
 import BookingForm from "@/components/BookingForm";
+import PageLoader from "@/components/PageLoader";
 
 const queryClient = new QueryClient();
 
@@ -16,6 +17,7 @@ const App = () => (
       <BookingFormProvider>
         <Toaster />
         <Sonner />
+        <PageLoader />
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />

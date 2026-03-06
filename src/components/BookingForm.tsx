@@ -81,7 +81,7 @@ const BookingForm = () => {
 
   return (
     <Dialog open={isOpen} onOpenChange={closeBookingForm}>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="w-[95vw] max-w-sm sm:max-w-md md:max-w-lg max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle>Book Your Order</DialogTitle>
           <DialogDescription>
@@ -90,15 +90,19 @@ const BookingForm = () => {
         </DialogHeader>
 
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5 sm:space-y-4">
             <FormField
               control={form.control}
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Name</FormLabel>
+                  <FormLabel className="text-sm sm:text-base">Name</FormLabel>
                   <FormControl>
-                    <Input placeholder="Your name" {...field} />
+                    <Input
+                      placeholder="Your name"
+                      className="h-10 sm:h-auto text-base"
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -110,9 +114,14 @@ const BookingForm = () => {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel className="text-sm sm:text-base">Email</FormLabel>
                   <FormControl>
-                    <Input type="email" placeholder="your@email.com" {...field} />
+                    <Input
+                      type="email"
+                      placeholder="your@email.com"
+                      className="h-10 sm:h-auto text-base"
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -124,9 +133,13 @@ const BookingForm = () => {
               name="phone"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Phone</FormLabel>
+                  <FormLabel className="text-sm sm:text-base">Phone</FormLabel>
                   <FormControl>
-                    <Input placeholder="(123) 456-7890" {...field} />
+                    <Input
+                      placeholder="(123) 456-7890"
+                      className="h-10 sm:h-auto text-base"
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -138,10 +151,10 @@ const BookingForm = () => {
               name="serviceType"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Service Type</FormLabel>
+                  <FormLabel className="text-sm sm:text-base">Service Type</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
-                      <SelectTrigger>
+                      <SelectTrigger className="h-10 sm:h-auto text-base">
                         <SelectValue placeholder="Select a service" />
                       </SelectTrigger>
                     </FormControl>
@@ -163,11 +176,17 @@ const BookingForm = () => {
               name="quantity"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Quantity</FormLabel>
+                  <FormLabel className="text-sm sm:text-base">Quantity</FormLabel>
                   <FormControl>
-                    <Input type="number" min="1" placeholder="1" {...field} />
+                    <Input
+                      type="number"
+                      min="1"
+                      placeholder="1"
+                      className="h-10 sm:h-auto text-base"
+                      {...field}
+                    />
                   </FormControl>
-                  <FormDescription>Number of items to be converted</FormDescription>
+                  <FormDescription className="text-xs sm:text-sm">Number of items to be converted</FormDescription>
                   <FormMessage />
                 </FormItem>
               )}
@@ -178,9 +197,13 @@ const BookingForm = () => {
               name="preferredDate"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Preferred Delivery Date (Optional)</FormLabel>
+                  <FormLabel className="text-sm sm:text-base">Preferred Delivery Date (Optional)</FormLabel>
                   <FormControl>
-                    <Input type="date" {...field} />
+                    <Input
+                      type="date"
+                      className="h-10 sm:h-auto text-base"
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -192,11 +215,11 @@ const BookingForm = () => {
               name="description"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Additional Details (Optional)</FormLabel>
+                  <FormLabel className="text-sm sm:text-base">Additional Details (Optional)</FormLabel>
                   <FormControl>
                     <Textarea
                       placeholder="Tell us more about your project..."
-                      className="resize-none"
+                      className="resize-none min-h-24 sm:min-h-28 text-base"
                       {...field}
                     />
                   </FormControl>
@@ -205,11 +228,19 @@ const BookingForm = () => {
               )}
             />
 
-            <div className="flex gap-3 pt-4">
-              <Button type="button" variant="outline" onClick={closeBookingForm} className="flex-1">
+            <div className="flex flex-col-reverse gap-3 pt-4 sm:flex-row">
+              <Button
+                type="button"
+                variant="outline"
+                onClick={closeBookingForm}
+                className="flex-1 h-10 sm:h-auto"
+              >
                 Cancel
               </Button>
-              <Button type="submit" className="flex-1">
+              <Button
+                type="submit"
+                className="flex-1 h-10 sm:h-auto"
+              >
                 Submit Booking
               </Button>
             </div>
