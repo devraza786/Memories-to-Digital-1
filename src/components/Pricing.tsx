@@ -1,5 +1,6 @@
 import { Check, Star, Video, Music, Image, Disc, Laptop, ShieldCheck } from "lucide-react";
 import { motion } from "framer-motion";
+import { useBookingForm } from "@/contexts/BookingFormContext";
 
 const servicePrices = [
   {
@@ -36,6 +37,8 @@ const transferMedia = [
 ];
 
 const Pricing = () => {
+  const { openBookingForm } = useBookingForm();
+
   return (
     <section id="pricing" className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 grid-bg opacity-5" />
@@ -117,7 +120,7 @@ const Pricing = () => {
                 ))}
               </div>
 
-              <button className="w-full py-3 rounded-xl font-bold bg-muted text-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300">
+              <button onClick={openBookingForm} className="w-full py-3 rounded-xl font-bold bg-muted text-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300">
                 Order Now
               </button>
             </motion.div>

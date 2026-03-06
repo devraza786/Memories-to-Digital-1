@@ -1,4 +1,8 @@
+import { useBookingForm } from "@/contexts/BookingFormContext";
+
 const CTASection = () => {
+  const { openBookingForm } = useBookingForm();
+
   return (
     <section id="contact" className="py-20">
       <div className="max-w-4xl mx-auto px-6">
@@ -10,7 +14,10 @@ const CTASection = () => {
           <p className="text-muted-foreground text-lg mb-10 max-w-lg mx-auto">
             Start preserving your precious recordings today with our professional digitization service.
           </p>
-          <button className="px-10 py-4 rounded-2xl bg-primary text-primary-foreground font-semibold text-lg hover:shadow-[0_0_40px_hsl(var(--neon-cyan)/0.4)] transition-all duration-300 hover:scale-105">
+          <button
+            onClick={openBookingForm}
+            className="px-10 py-4 rounded-2xl bg-primary text-primary-foreground font-semibold text-lg hover:shadow-[0_0_40px_hsl(var(--neon-cyan)/0.4)] transition-all duration-300 hover:scale-105"
+          >
             Convert My Tapes
           </button>
         </div>
