@@ -20,7 +20,7 @@ const servicePrices = [
   {
     icon: Image,
     name: "Photos & Slides",
-    price: "10¢ Each",
+    price: "15¢ Each",
     description: "35MM SLIDES/PHOTOS TO DVD/THUMB DRIVE",
     details: ["High Resolution Scanning", "$5.00 Minimum Order", "Color Correction"]
   }

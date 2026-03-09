@@ -17,7 +17,7 @@ const steps = [
     icon: Download,
     step: "03",
     title: "Receive Digital Files",
-    desc: "Download or receive USB / cloud files.",
+    desc: "Receive files on DVD, thumb drive, or Blu-ray.",
   },
 ];
 

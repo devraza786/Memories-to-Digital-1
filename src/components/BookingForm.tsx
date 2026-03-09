@@ -47,7 +47,6 @@ const services = [
   { value: "minidv-conversion", label: "MiniDV Conversion" },
   { value: "cassette-to-digital", label: "Cassette to Digital" },
   { value: "hi8-conversion", label: "Hi8 / Video8 Conversion" },
-  { value: "dvd-delivery", label: "DVD & Cloud Delivery" },
   { value: "other", label: "Other" },
 ];
 
