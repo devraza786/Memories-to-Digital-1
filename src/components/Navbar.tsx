@@ -1,10 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { Search, Phone, Film, Menu, X } from "lucide-react";
+import { useTheme } from "next-themes";
+import { Search, Phone, Film, Menu, X, Moon, Sun } from "lucide-react";
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { theme, setTheme } = useTheme();
   const menuItems = ["Home", "Services", "Pricing", "How It Works", "Contact"];
 
   return (
@@ -49,6 +51,19 @@ const Navbar = () => {
             title="Call us"
           >
             <Phone className="w-4 h-4 text-muted-foreground hover:text-primary" />
+          </button>
+
+          {/* Theme Toggle Button */}
+          <button
+            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+            className="p-2 rounded-xl hover:bg-muted/50 hover:text-primary transition-all duration-200"
+            title={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
+          >
+            {theme === "light" ? (
+              <Moon className="w-4 h-4 text-muted-foreground hover:text-primary" />
+            ) : (
+              <Sun className="w-4 h-4 text-muted-foreground hover:text-primary" />
+            )}
           </button>
 
           {/* Mobile Menu Button */}
