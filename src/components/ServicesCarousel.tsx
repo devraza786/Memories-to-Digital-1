@@ -12,7 +12,7 @@ const services = [
   { title: "MiniDV Conversion", desc: "Transfer camcorder tapes to digital format.", img: minidvImg, rating: 4.9 },
   { title: "Cassette to Digital", desc: "Restore and digitize old audio recordings.", img: cassetteImg, rating: 4.8 },
   { title: "Hi8 / Video8 Conversion", desc: "Professional Hi8 and Video8 transfer.", img: hi8Img, rating: 4.7 },
-  { title: "DVD & Cloud Delivery", desc: "Receive files via DVD, USB, or cloud.", img: dvdImg, rating: 4.9 },
+  { title: "DVD & Media Delivery", desc: "Receive files via DVD, thumb drive, or Blu-ray.", img: dvdImg, rating: 4.9 },
 ];
 
 const ServicesCarousel = () => {
